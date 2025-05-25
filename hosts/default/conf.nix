@@ -15,6 +15,7 @@
     ../../modules/system/bootloader.nix
     ../../modules/system/pipewire.nix
     ../../modules/system/bluetooth.nix
+    ../../modules/system/i18n.nix
   ];
 
   nix.settings.experimental-features = [
@@ -23,28 +24,10 @@
   ];
 
   networking.hostName = "nixzimin";
-  #networking.proxy.default = "127.0.0.1:2080";
   #networking.wireless.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
-  # Set your time zone.
-  time.timeZone = "Asia/Yekaterinburg";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "ru_RU.UTF-8";
-    LC_IDENTIFICATION = "ru_RU.UTF-8";
-    LC_MEASUREMENT = "ru_RU.UTF-8";
-    LC_MONETARY = "ru_RU.UTF-8";
-    LC_NAME = "ru_RU.UTF-8";
-    LC_NUMERIC = "ru_RU.UTF-8";
-    LC_PAPER = "ru_RU.UTF-8";
-    LC_TELEPHONE = "ru_RU.UTF-8";
-    LC_TIME = "ru_RU.UTF-8";
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.grizimin = {
@@ -67,7 +50,6 @@
     wget
     git
     firefox
-    rofi-wayland
     ghostty
     telegram-desktop
     gtk2

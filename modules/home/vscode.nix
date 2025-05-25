@@ -14,12 +14,16 @@
       jnoortheen.nix-ide # advanced IDE support (recommended)
       vscodevim.vim
       yzhang.markdown-all-in-one
+      ms-dotnettools.csharp
+      ms-dotnettools.vscode-dotnet-runtime
     ];
 
     userSettings = {
       "editor.formatOnSave" = true;
       "C_Cpp.intelliSenseEngine" = "Default";
       "C_Cpp.updateChannel" = "Default";
+      "window.menuBarVisibility" = "compact";
+      "editor.minimap.enabled" = false;
 
       "vim.insertModeKeyBindings" = [
         {
@@ -43,23 +47,7 @@
           ];
           "commands" = [ "workbench.view.explorer" ];
         }
-        {
-          "before" = [ "<C-h>" ];
-          "commands" = [ "workbench.action.focusLeftGroup" ];
-        }
-        {
-          "before" = [ "<C-l>" ];
-          "commands" = [ "workbench.action.focusRightGroup" ];
-        }
-        {
-          "before" = [ "<C-j>" ];
-          "commands" = [ "workbench.action.focusBelowGroup" ];
-        }
-        {
-          "before" = [ "<C-k>" ];
-          "commands" = [ "workbench.action.focusAboveGroup" ];
-        }
-        {
+       {
           "before" = [
             "<leader>"
             "f"
@@ -101,13 +89,6 @@
             "t"
           ];
           "commands" = [ "workbench.action.terminal.focus" ];
-        }
-        {
-          "before" = [
-            "<leader>"
-            "E"
-          ];
-          "commands" = [ "workbench.action.focusActiveEditorGroup" ];
         }
       ];
     };
