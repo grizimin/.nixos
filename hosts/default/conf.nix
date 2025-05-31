@@ -16,18 +16,13 @@
     ../../modules/system/pipewire.nix
     ../../modules/system/bluetooth.nix
     ../../modules/system/i18n.nix
+    ../../modules/system/networking.nix
   ];
 
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
-
-  networking.hostName = "nixzimin";
-  #networking.wireless.enable = true;
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.grizimin = {

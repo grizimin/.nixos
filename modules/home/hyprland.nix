@@ -7,6 +7,9 @@
     ".config/wallpapers/".source = ../../dotfiles/wallpapers;
   };
 
+  stylix.targets.waybar.enable = true;
+  programs.waybar.enable = true;
+
   home.packages = with pkgs; [
     hyprpaper
     waybar
