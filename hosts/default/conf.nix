@@ -10,9 +10,9 @@
     ../../modules/system/hyprland.nix
     ../../modules/home/stylix.nix
     ../../modules/system/nvidia.nix
-    ../../modules/system/sddm.nix
+    ../../modules/system/login-managers/ly.nix
     ../../modules/system/singbox.nix
-    ../../modules/system/bootloader.nix
+    ../../modules/system/bootloaders/grub.nix
     ../../modules/system/pipewire.nix
     ../../modules/system/bluetooth.nix
     ../../modules/system/i18n.nix
@@ -70,12 +70,7 @@
   users.defaultUserShell = pkgs.zsh;
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-      ];
-    })
+    nerd-fonts.jetbrains-mono
   ];
 
   system.stateVersion = "24.11";

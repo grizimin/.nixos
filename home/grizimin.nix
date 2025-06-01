@@ -12,7 +12,6 @@
   home.homeDirectory = "/home/grizimin";
 
   home.packages = with pkgs; [
-    thefuck
   ];
 
   programs.git = {

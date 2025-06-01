@@ -1,11 +1,13 @@
 { pkgs, ... }:
 
 {
+  stylix.targets.vscode.enable = false;
+
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode.fhs;
+    package = pkgs.vscode;
 
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
       ms-vscode.cpptools # Microsoft C/C++ tools (intellisense, debugging, etc.)
       ms-vscode.cmake-tools # CMake integration
       twxs.cmake # CMake syntax highlighting
@@ -20,7 +22,7 @@
       eamodio.gitlens
     ];
 
-    userSettings = {
+    profiles.default.userSettings = {
       "editor.formatOnSave" = true;
       "C_Cpp.intelliSenseEngine" = "Default";
       "C_Cpp.updateChannel" = "Default";
@@ -35,6 +37,8 @@
       "breadcrumbs.enabled" = false;
       "editor.cursorBlinking" = "expand";
       "editor.cursorSmoothCaretAnimation" = "on";
+      "editor.fontSize" = 16;
+      "editor.fontFamily" = "JetBrains Mono";
 
       "vim.insertModeKeyBindings" = [
         {
@@ -55,7 +59,7 @@
       ];
     };
 
-    keybindings = [
+    profiles.default.keybindings = [
       # Navigation
       {
         key = "ctrl+h";

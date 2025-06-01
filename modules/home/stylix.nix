@@ -8,8 +8,11 @@
   stylix.image = ../../dotfiles/wallpapers/nixos.png;
   stylix.polarity = "dark";
 
-  stylix.cursor.package = pkgs.bibata-cursors;
-  stylix.cursor.name = "Bibata-Modern-Ice";
+  stylix.cursor = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 20;
+  };
 
   stylix.fonts = {
     monospace = {
