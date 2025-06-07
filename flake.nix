@@ -61,7 +61,7 @@
             config.allowUnfree = true;
           };
           modules = [
-            stylix.homeManagerModules.stylix
+            stylix.homeModules.stylix
             ./home/grizimin.nix
           ];
         };

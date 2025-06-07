@@ -6,6 +6,7 @@
     ../modules/home/vscode.nix
     ../modules/home/hyprland.nix
     ../modules/home/stylix.nix
+    ../modules/home/zed.nix
   ];
 
   home.username = "grizimin";
@@ -17,5 +18,10 @@
   programs.git = {
     userName = "GriZimin";
     userEmail = "grizimin@gmail.com";
+  };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
   };
 }

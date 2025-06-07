@@ -45,7 +45,6 @@
       enable = true;
       plugins = [
         "git"
-        "thefuck"
       ];
       theme = "robbyrussell";
     };

@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  #networking.proxy.default = "127.0.0.1:2080";
+    #networking.proxy.default = "127.0.0.1:2080";
   systemd.services.singbox = {
     description = "Sing-box Proxy Service";
     wantedBy = [ "multi-user.target" ];
