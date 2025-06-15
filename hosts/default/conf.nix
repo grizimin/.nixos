@@ -11,13 +11,11 @@
     ../../modules/home/stylix.nix
     ../../modules/system/nvidia.nix
     ../../modules/system/login-managers/ly.nix
-    ../../modules/system/singbox.nix
     ../../modules/system/bootloaders/grub.nix
     ../../modules/system/pipewire.nix
     ../../modules/system/bluetooth.nix
     ../../modules/system/i18n.nix
     ../../modules/system/networking.nix
-    ../../modules/system/steam.nix
   ];
 
   nix.settings.experimental-features = [
@@ -62,7 +60,6 @@
     bat
     neofetch
     nixfmt-rfc-style
-    discord
   ];
 
   programs.thunar.enable = true;
