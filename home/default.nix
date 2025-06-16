@@ -8,7 +8,7 @@
   #gtk.theme.name = "adw-gtk3";
 
   qt.enable = true;
-  qt.platformTheme.name = "gtk";
+  #qt.platformTheme.name = "gtk";
 
   home.file = {
     ".config/ghostty/config".source = ../dotfiles/ghostty/config;
@@ -38,7 +38,8 @@
     shellAliases = {
       gs = "git status";
       ll = "ls -l";
-      update = "sudo nixos-rebuild switch --flake";
+      nrs = "sudo nixos-rebuild switch --flake";
+      hrs = "home-manager switch --flake";
     };
 
     oh-my-zsh = {

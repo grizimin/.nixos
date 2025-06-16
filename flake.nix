@@ -14,6 +14,11 @@
     stylix.url = "github:danth/stylix";
 
     nixvim.url = "github:grizimin/.nixvim";
+
+    quickshell = {
+          url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
+          inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -25,6 +30,7 @@
       nur,
       stylix,
       nixvim,
+      quickshell,
       ...
     }@inputs:
     let
@@ -41,16 +47,16 @@
 
         modules = [
           { nixpkgs.overlays = [ inputs.hyprpanel.overlay ]; }
-          home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager {
+            home-manager.extraSpecialArgs = {inherit inputs;};
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users."grizimin" = import ./home/grizimin.nix;
+          }
+
           stylix.nixosModules.stylix
 
           ./hosts/default/conf.nix
-
-          {
-            environment.systemPackages = [
-              inputs.nixvim.packages."x86_64-linux".default
-            ];
-          }
         ];
       };
 

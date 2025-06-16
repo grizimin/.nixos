@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports = [
@@ -16,6 +16,8 @@
     ../../modules/system/bluetooth.nix
     ../../modules/system/i18n.nix
     ../../modules/system/networking.nix
+    ../../modules/system/steam.nix
+        #../../modules/system/minecraft-server.nix
   ];
 
   nix.settings.experimental-features = [
@@ -40,6 +42,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    inputs.nixvim.packages.${pkgs.system}.default
     home-manager
     wget
     git
