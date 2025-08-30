@@ -17,7 +17,6 @@
     wget
     git
     firefox
-    telegram-desktop
     gtk2
     gtk3
     gtk4
@@ -41,6 +40,12 @@
 
   programs.thunar.enable = true;
 
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = ""; # sets NH_OS_FLAKE variable for you
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono

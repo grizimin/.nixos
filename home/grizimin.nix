@@ -6,6 +6,7 @@
     ../modules/home/hypr
     ../modules/home/stylix.nix
     ../modules/home/kitty.nix
+    ../modules/home/vscode.nix
   ];
 
   home.username = "grizimin";
@@ -17,12 +18,22 @@
     obsidian
         #davinci-resolve
         #blender
-    #yandex-music
+    telegram-desktop
     zed-editor
     pkgs.prismlauncher
     nautilus
 
+    pinta
     rustup
+
+    iptables
+    ipset
+
+    legcord
+
+    teamspeak5_client
+
+    obs-studio
   ];
   
   programs.git = {

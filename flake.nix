@@ -23,7 +23,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      nixosConfigurations.master = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixzimin = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit system;
           inherit inputs;
@@ -47,6 +47,8 @@
             ./modules/system/steam.nix
 	    ./modules/system/packages.nix
 	    ./modules/system/users.nix
+
+	    ./modules/system/zapret
               
             inputs.stylix.nixosModules.stylix
             inputs.home-manager.nixosModules.home-manager {
