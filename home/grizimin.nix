@@ -7,6 +7,9 @@
     ../modules/home/stylix.nix
     ../modules/home/kitty.nix
     ../modules/home/vscode.nix
+    ../modules/home/plasma.nix
+    inputs.zen-browser.homeModules.twilight
+    inputs.mango.hmModules.mango
   ];
 
   home.username = "grizimin";
@@ -34,7 +37,13 @@
     teamspeak5_client
 
     obs-studio
+
+    libreoffice-qt
   ];
+
+  programs.zen-browser = {
+    enable = true;
+  };
   
   programs.git = {
     userName = "GriZimin";

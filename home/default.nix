@@ -14,6 +14,7 @@ gtk.enable = true;
     ".config/rofi/config.rasi".source = ../dotfiles/rofi/config.rasi;
     ".config/rofi/theme.rasi".source = ../dotfiles/rofi/theme.rasi;
     ".config/rofi/onedark.rasi".source = ../dotfiles/rofi/onedark.rasi;
+    ".config/wallpapers/terminal.png".source = ../dotfiles/wallpapers/terminal.png;
   };
 
   home.sessionVariables = {
@@ -45,12 +46,6 @@ gtk.enable = true;
     };
 
     history.size = 10000;
-
-    initContent = ''
-        if [[ $- == *i* ]]; then
-            fastfetch --logo /home/grizimin/Downloads/terminal.png --logo-type kitty-direct --logo-width 30 --logo-height 14
-        fi  
-    '';
   };
 
   programs.home-manager.enable = true;

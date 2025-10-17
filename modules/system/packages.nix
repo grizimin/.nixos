@@ -36,6 +36,7 @@
     mpv
     imv
     tmux
+    bottles
   ];
 
   programs.thunar.enable = true;

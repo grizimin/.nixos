@@ -7,7 +7,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    mango.url = "github:DreamMaoMao/mango";
+
     stylix.url = "github:danth/stylix";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs =
@@ -15,7 +18,9 @@
       self,
       nixpkgs,
       home-manager,
+      plasma-manager,
       stylix,
+      mango,
       ...
     }@inputs:
     let
@@ -38,6 +43,7 @@
             ./modules/system/nvidia.nix
             ./modules/system/singbox.nix
             ./modules/system/login-managers/ly.nix
+
             ./modules/system/bootloaders/grub.nix
             ./modules/system/plymouth.nix
             ./modules/system/pipewire.nix
@@ -48,9 +54,8 @@
 	    ./modules/system/packages.nix
 	    ./modules/system/users.nix
 
-	    ./modules/system/zapret
-              
             inputs.stylix.nixosModules.stylix
+	    inputs.mango.nixosModules.mango
             inputs.home-manager.nixosModules.home-manager {
                 home-manager = {
                     extraSpecialArgs = {inherit inputs;};
