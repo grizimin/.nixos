@@ -37,6 +37,7 @@
     imv
     tmux
     bottles
+    foot
   ];
 
   programs.thunar.enable = true;

@@ -7,7 +7,7 @@
     ../modules/home/stylix.nix
     ../modules/home/kitty.nix
     ../modules/home/vscode.nix
-    ../modules/home/plasma.nix
+    ../modules/home/mango.nix
     inputs.zen-browser.homeModules.twilight
     inputs.mango.hmModules.mango
   ];
@@ -23,16 +23,10 @@
         #blender
     telegram-desktop
     zed-editor
-    pkgs.prismlauncher
     nautilus
 
     pinta
     rustup
-
-    iptables
-    ipset
-
-    legcord
 
     teamspeak5_client
 

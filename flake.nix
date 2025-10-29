@@ -18,7 +18,6 @@
       self,
       nixpkgs,
       home-manager,
-      plasma-manager,
       stylix,
       mango,
       ...
@@ -43,6 +42,9 @@
             ./modules/system/nvidia.nix
             ./modules/system/singbox.nix
             ./modules/system/login-managers/ly.nix
+
+	    ./modules/system/mango.nix
+	    ./modules/system/niri.nix
 
             ./modules/system/bootloaders/grub.nix
             ./modules/system/plymouth.nix

@@ -4,7 +4,7 @@
   networking = {
       hostName = "nixzimin";
 
-      networkmanager.enable = false;
+      networkmanager.enable = true;
 
       firewall.enable = false;
   };

@@ -2,7 +2,7 @@
 
 {
     stylix.targets = {
-        waybar.enable = true;
+        waybar.enable = false;
         vscode.enable = false;
         zed.enable = false;
         hyprland.enable = false;
