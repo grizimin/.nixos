@@ -6,5 +6,6 @@
         vscode.enable = false;
         zed.enable = false;
         hyprland.enable = false;
+        foot.enable = false;
     };
 }

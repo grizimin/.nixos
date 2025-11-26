@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -21,11 +20,11 @@
       ];
 
       exec-once = [
-        "hyprpaper"
-        "waybar -s ~/.config/waybar/actual-style.css -c ~/.config/waybar/config.json"
+        "waybar"
+        "wpaperd"
       ];
 
-      "$terminal" = "kitty";
+      "$terminal" = "foot";
       "$fileManager" = "dolphin";
       "$menu" = "rofi -show drun";
       "$mainMod" = "SUPER";
@@ -35,7 +34,7 @@
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border" = "rgb(2e3440) rgb(4c566a) 60deg";
+        "col.active_border" = "rgb(f24848) rgb(631f21) 60deg";
         "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
         allow_tearing = false;
@@ -45,7 +44,6 @@
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
-        inactive_opacity = 0.5;
 
         shadow = {
           enabled = true;
@@ -110,7 +108,7 @@
         kb_options = "grp:caps_toggle";
         follow_mouse = 1;
         sensitivity = 0;
-        touchpad.natural_scroll = false;
+        touchpad.natural_scroll = true;
       };
 
       device = {
@@ -131,6 +129,7 @@
         "$mainMod, PRINT, exec, hyprshot -m window"
         ", PRINT, exec, hyprshot -m output"
         "$shiftMod, PRINT, exec, hyprshot -m region"
+
 
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
@@ -185,8 +184,6 @@
   programs.hyprlock.enable = true;
 
   home.packages = with pkgs; [
-    hyprpaper
-    waybar
     rofi
     hyprshot
     wl-clipboard

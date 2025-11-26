@@ -42,7 +42,7 @@ gtk.enable = true;
       plugins = [
         "git"
       ];
-      theme = "robbyrussell";
+      theme = "jonathan";
     };
 
     history.size = 10000;

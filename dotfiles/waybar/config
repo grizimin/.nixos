@@ -23,7 +23,7 @@
         "custom/sep",
         "memory",
         "custom/sep",
-        "disk",
+        "battery",
         "custom/sep",
         "clock",
         "custom/sep",
@@ -78,10 +78,6 @@
         "format-alt": "Bat {capacity}%",
         "format-time": "{H}:{M}",
         "format-icons": ["", "", "", "", ""]
-    },
-    "network": {
-        "format": "Online",
-        "format-disconnected": "Disconnected ⚠"
     },
     "custom/sep": {
         "format" : "|",

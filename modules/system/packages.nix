@@ -37,7 +37,6 @@
     imv
     tmux
     bottles
-    foot
   ];
 
   programs.thunar.enable = true;
@@ -52,6 +51,11 @@
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
   ];
+
+  programs.nekoray = {
+    enable = true;
+    tunMode.enable = true;
+  };
 
   system.stateVersion = "25.05";
 }

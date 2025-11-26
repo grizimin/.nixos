@@ -7,9 +7,12 @@
     ../modules/home/stylix.nix
     ../modules/home/kitty.nix
     ../modules/home/vscode.nix
-    ../modules/home/mango.nix
+    #../modules/home/mango.nix
+    ../modules/home/wpaperd.nix
+    #inputs.mango.hmModules.mango
     inputs.zen-browser.homeModules.twilight
-    inputs.mango.hmModules.mango
+    ../modules/home/zen-browser.nix
+    ../modules/home/foot.nix
   ];
 
   home.username = "grizimin";
@@ -34,10 +37,6 @@
 
     libreoffice-qt
   ];
-
-  programs.zen-browser = {
-    enable = true;
-  };
   
   programs.git = {
     userName = "GriZimin";
