@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   nix.settings.experimental-features = [
@@ -28,8 +33,7 @@
     python3
     gcc
     bat
-    fastfetch 
-    nixfmt-rfc-style
+    fastfetch
     jdk
     btop
     p7zip
@@ -37,6 +41,7 @@
     imv
     tmux
     bottles
+    nixfmt-rfc-style
   ];
 
   programs.thunar.enable = true;

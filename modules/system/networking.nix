@@ -2,11 +2,11 @@
 
 {
   networking = {
-      hostName = "nixzimin";
+    hostName = "nixzimin";
 
-      networkmanager.enable = true;
+    networkmanager.enable = true;
 
-      firewall.enable = false;
+    firewall.enable = false;
   };
 
 }

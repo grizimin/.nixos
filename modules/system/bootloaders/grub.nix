@@ -7,7 +7,7 @@
       device = "nodev";
       useOSProber = true;
       efiSupport = true;
-            #theme = (pkgs.sleek-grub-theme.override{withStyle = "dark";});
+      #theme = (pkgs.sleek-grub-theme.override{withStyle = "dark";});
     };
     efi.canTouchEfiVariables = true;
     efi.efiSysMountPoint = "/boot";

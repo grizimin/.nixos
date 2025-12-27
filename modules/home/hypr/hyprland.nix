@@ -20,11 +20,11 @@
       ];
 
       exec-once = [
-        "waybar"
+        "noctalia-shell"
         "wpaperd"
       ];
 
-      "$terminal" = "foot";
+      "$terminal" = "kitty";
       "$fileManager" = "dolphin";
       "$menu" = "rofi -show drun";
       "$mainMod" = "SUPER";
@@ -112,8 +112,8 @@
       };
 
       device = {
-            name = "epic-mouse-v1";
-            sensitivity = -0.5;
+        name = "epic-mouse-v1";
+        sensitivity = -0.5;
       };
 
       bind = [
@@ -130,19 +130,18 @@
         ", PRINT, exec, hyprshot -m output"
         "$shiftMod, PRINT, exec, hyprshot -m region"
 
-
         "$mainMod, left, movefocus, l"
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
-      ] ++ (
-        builtins.concatLists (builtins.genList
-          (i: [
-            "$mainMod, ${toString i}, workspace, ${toString i}"
-            "$mainMod SHIFT, ${toString i}, movetoworkspace, ${toString i}"
-          ])
-          10)
-      ) ++ [
+      ]
+      ++ (builtins.concatLists (
+        builtins.genList (i: [
+          "$mainMod, ${toString i}, workspace, ${toString i}"
+          "$mainMod SHIFT, ${toString i}, movetoworkspace, ${toString i}"
+        ]) 10
+      ))
+      ++ [
         "$mainMod, 0, workspace, 10"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
         "$mainMod, S, togglespecialworkspace, magic"
@@ -179,7 +178,6 @@
     };
   };
 
-
   programs.waybar.enable = true;
   programs.hyprlock.enable = true;
 
@@ -188,6 +186,5 @@
     hyprshot
     wl-clipboard
   ];
-    
 
 }

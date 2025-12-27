@@ -11,6 +11,11 @@
 
     stylix.url = "github:danth/stylix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -19,7 +24,6 @@
       nixpkgs,
       home-manager,
       stylix,
-      #mango,
       ...
     }@inputs:
     let
@@ -27,6 +31,8 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-tree;
+
       nixosConfigurations.nixzimin = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit system;
@@ -35,40 +41,40 @@
 
         modules = [
 
-            ./modules/hardware-configuration.nix
+          ./modules/hardware-configuration.nix
 
-            ./modules/system/hyprland.nix
-            ./modules/system/stylix.nix
-            ./modules/system/nvidia.nix
-            #./modules/system/singbox.nix
-            ./modules/system/login-managers/ly.nix
+          ./modules/system/hyprland.nix
+          ./modules/system/stylix.nix
+          ./modules/system/nvidia.nix
+          #./modules/system/singbox.nix
+          ./modules/system/login-managers/ly.nix
 
-	          #./modules/system/mango.nix
-	          ./modules/system/niri.nix
+          #./modules/system/mango.nix
+          ./modules/system/niri.nix
 
-            ./modules/system/bootloaders/grub.nix
-            ./modules/system/plymouth.nix
-            ./modules/system/pipewire.nix
-            ./modules/system/bluetooth.nix
-            ./modules/system/i18n.nix
-            ./modules/system/networking.nix
-            ./modules/system/steam.nix
-	          ./modules/system/packages.nix
-	          ./modules/system/users.nix
+          ./modules/system/bootloaders/grub.nix
+          ./modules/system/plymouth.nix
+          ./modules/system/pipewire.nix
+          ./modules/system/bluetooth.nix
+          ./modules/system/i18n.nix
+          ./modules/system/networking.nix
+          ./modules/system/steam.nix
+          ./modules/system/packages.nix
+          ./modules/system/users.nix
 
-            inputs.stylix.nixosModules.stylix
-	          #inputs.mango.nixosModules.mango
-            inputs.home-manager.nixosModules.home-manager {
-                home-manager = {
-                    extraSpecialArgs = {inherit inputs;};
-                    useUserPackages = true;
-                    users."grizimin" = import ./home/grizimin.nix;
-                };
-            }
+          inputs.stylix.nixosModules.stylix
+          #inputs.mango.nixosModules.mango
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              extraSpecialArgs = { inherit inputs; };
+              useUserPackages = true;
+              users."grizimin" = import ./home/grizimin.nix;
+            };
+          }
 
         ];
       };
 
     };
 }
-
