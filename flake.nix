@@ -61,6 +61,7 @@
           ./modules/system/steam.nix
           ./modules/system/packages.nix
           ./modules/system/users.nix
+	  ./modules/system/security.nix
 
           inputs.stylix.nixosModules.stylix
           #inputs.mango.nixosModules.mango

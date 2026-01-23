@@ -22,6 +22,7 @@
       exec-once = [
         "noctalia-shell"
         "wpaperd"
+	"/usr/libexec/polkit-gnome-authentication-agent-1"
       ];
 
       "$terminal" = "kitty";
@@ -177,6 +178,8 @@
       ];
     };
   };
+
+  #programs.hyprland.withUWSM = true;
 
   programs.waybar.enable = true;
   programs.hyprlock.enable = true;
