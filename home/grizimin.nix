@@ -32,7 +32,6 @@
     #davinci-resolve
     #blender
     telegram-desktop
-    nautilus
 
     pinta
     rustup
@@ -40,7 +39,8 @@
     obs-studio
 
     libreoffice-qt
-    jetbrains.clion
+    #jetbrains.clion
+    android-studio
   ];
 
   programs.git = {

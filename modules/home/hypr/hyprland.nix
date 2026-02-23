@@ -171,11 +171,10 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
-
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-      ];
+#	windowrule = [
+#	  "suppress_event maximize 1, class *"
+#	  "no_focus 1, class ^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+#	];
     };
   };
 

@@ -47,7 +47,7 @@
           ./modules/system/stylix.nix
           ./modules/system/nvidia.nix
           #./modules/system/singbox.nix
-          ./modules/system/login-managers/ly.nix
+          ./modules/system/login-managers/gdm.nix
 
           #./modules/system/mango.nix
           ./modules/system/niri.nix
@@ -62,6 +62,7 @@
           ./modules/system/packages.nix
           ./modules/system/users.nix
 	  ./modules/system/security.nix
+	  ./modules/system/nautilus.nix
 
           inputs.stylix.nixosModules.stylix
           #inputs.mango.nixosModules.mango
