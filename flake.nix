@@ -63,6 +63,7 @@
           ./modules/system/users.nix
 	  ./modules/system/security.nix
 	  ./modules/system/nautilus.nix
+	  ./modules/system/power.nix
 
           inputs.stylix.nixosModules.stylix
           #inputs.mango.nixosModules.mango

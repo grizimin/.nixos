@@ -27,7 +27,7 @@
 
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
-      "$menu" = "rofi -show drun";
+      "$menu" = "noctalia-shell ipc call launcher toggle";
       "$mainMod" = "SUPER";
       "$shiftMod" = "SHIFT"; # used in binds
 
@@ -120,7 +120,7 @@
       bind = [
         "$mainMod, T, exec, $terminal"
         "$mainMod, C, killactive,"
-        "$mainMod, M, exit,"
+        "$mainMod, M, exec, noctalia-shell ipc call sessionMenu toggle"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod, Space, exec, $menu"
