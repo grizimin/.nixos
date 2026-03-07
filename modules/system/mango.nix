@@ -1,5 +1,10 @@
-{ inpugs, config, pkgs, ... }:
+{
+  inpugs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
-    programs.mango.enable = true;
+  programs.mango.enable = true;
 }

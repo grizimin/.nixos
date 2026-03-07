@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
@@ -21,13 +20,14 @@
       ];
 
       exec-once = [
-        "hyprpaper"
-        "waybar -s ~/.config/waybar/actual-style.css -c ~/.config/waybar/config.json"
+        "noctalia-shell"
+        "wpaperd"
+	"/usr/libexec/polkit-gnome-authentication-agent-1"
       ];
 
       "$terminal" = "kitty";
       "$fileManager" = "dolphin";
-      "$menu" = "rofi -show drun";
+      "$menu" = "noctalia-shell ipc call launcher toggle";
       "$mainMod" = "SUPER";
       "$shiftMod" = "SHIFT"; # used in binds
 
@@ -35,7 +35,7 @@
         gaps_in = 5;
         gaps_out = 20;
         border_size = 2;
-        "col.active_border" = "rgb(2e3440) rgb(4c566a) 60deg";
+        "col.active_border" = "rgb(f24848) rgb(631f21) 60deg";
         "col.inactive_border" = "rgba(595959aa)";
         resize_on_border = false;
         allow_tearing = false;
@@ -45,7 +45,6 @@
       decoration = {
         rounding = 10;
         active_opacity = 1.0;
-        inactive_opacity = 0.5;
 
         shadow = {
           enabled = true;
@@ -110,18 +109,18 @@
         kb_options = "grp:caps_toggle";
         follow_mouse = 1;
         sensitivity = 0;
-        touchpad.natural_scroll = false;
+        touchpad.natural_scroll = true;
       };
 
       device = {
-            name = "epic-mouse-v1";
-            sensitivity = -0.5;
+        name = "epic-mouse-v1";
+        sensitivity = -0.5;
       };
 
       bind = [
         "$mainMod, T, exec, $terminal"
         "$mainMod, C, killactive,"
-        "$mainMod, M, exit,"
+        "$mainMod, M, exec, noctalia-shell ipc call sessionMenu toggle"
         "$mainMod, E, exec, $fileManager"
         "$mainMod, V, togglefloating,"
         "$mainMod, Space, exec, $menu"
@@ -136,14 +135,14 @@
         "$mainMod, right, movefocus, r"
         "$mainMod, up, movefocus, u"
         "$mainMod, down, movefocus, d"
-      ] ++ (
-        builtins.concatLists (builtins.genList
-          (i: [
-            "$mainMod, ${toString i}, workspace, ${toString i}"
-            "$mainMod SHIFT, ${toString i}, movetoworkspace, ${toString i}"
-          ])
-          10)
-      ) ++ [
+      ]
+      ++ (builtins.concatLists (
+        builtins.genList (i: [
+          "$mainMod, ${toString i}, workspace, ${toString i}"
+          "$mainMod SHIFT, ${toString i}, movetoworkspace, ${toString i}"
+        ]) 10
+      ))
+      ++ [
         "$mainMod, 0, workspace, 10"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
         "$mainMod, S, togglespecialworkspace, magic"
@@ -172,25 +171,22 @@
         ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86AudioPrev, exec, playerctl previous"
       ];
-
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
-      ];
+#	windowrule = [
+#	  "suppress_event maximize 1, class *"
+#	  "no_focus 1, class ^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+#	];
     };
   };
 
+  #programs.hyprland.withUWSM = true;
 
   programs.waybar.enable = true;
   programs.hyprlock.enable = true;
 
   home.packages = with pkgs; [
-    hyprpaper
-    waybar
     rofi
     hyprshot
     wl-clipboard
   ];
-    
 
 }

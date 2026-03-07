@@ -4,7 +4,7 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscode;
+    package = pkgs.vscode.fhs;
 
     profiles.default.extensions = with pkgs.vscode-extensions; [
       ms-vscode.cpptools # Microsoft C/C++ tools (intellisense, debugging, etc.)
@@ -15,10 +15,6 @@
       jnoortheen.nix-ide # advanced IDE support (recommended)
       vscodevim.vim
       yzhang.markdown-all-in-one
-      ms-dotnettools.csharp
-      ms-dotnettools.vscode-dotnet-runtime
-      esbenp.prettier-vscode
-      eamodio.gitlens
     ];
 
     profiles.default.userSettings = {

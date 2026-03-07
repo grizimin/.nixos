@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -7,38 +12,37 @@
     ../modules/home/stylix.nix
     ../modules/home/kitty.nix
     ../modules/home/vscode.nix
-    ../modules/home/mango.nix
+    ../modules/home/quickshell.nix
+    #../modules/home/mango.nix
+    ../modules/home/wpaperd.nix
+    #inputs.mango.hmModules.mango
     inputs.zen-browser.homeModules.twilight
-    inputs.mango.hmModules.mango
+    ../modules/home/zen-browser.nix
+    ../modules/home/foot.nix
   ];
 
   home.username = "grizimin";
   home.homeDirectory = "/home/grizimin";
-  
+
   nixpkgs.config.allowUnfree = true;
 
   home.packages = with pkgs; [
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     obsidian
-        #davinci-resolve
-        #blender
+    #davinci-resolve
+    #blender
     telegram-desktop
-    zed-editor
-    nautilus
 
     pinta
     rustup
 
-    teamspeak5_client
-
     obs-studio
 
     libreoffice-qt
+    #jetbrains.clion
+    android-studio
   ];
 
-  programs.zen-browser = {
-    enable = true;
-  };
-  
   programs.git = {
     userName = "GriZimin";
     userEmail = "grizimin@gmail.com";

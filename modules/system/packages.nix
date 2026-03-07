@@ -1,4 +1,9 @@
-{ inputs, config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
   nix.settings.experimental-features = [
@@ -28,19 +33,23 @@
     python3
     gcc
     bat
-    fastfetch 
-    nixfmt-rfc-style
+    fastfetch
     jdk
     btop
     p7zip
     mpv
+    vlc
     imv
     tmux
     bottles
-    foot
+    nixfmt-rfc-style
+    transmission_4-qt
+    pavucontrol
+    vial
+    libqalculate
   ];
 
-  programs.thunar.enable = true;
+  nix.settings.substituters = [ "https://aseipp-nix-cache.global.ssl.fastly.net" ];
 
   programs.nh = {
     enable = true;
@@ -51,7 +60,15 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    corefonts
   ];
+
+  programs.nekoray = {
+    enable = true;
+    tunMode.enable = true;
+  };
+
+  hardware.keyboard.qmk.enable = true;
 
   system.stateVersion = "25.05";
 }
